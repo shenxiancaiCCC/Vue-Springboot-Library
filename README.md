@@ -42,7 +42,7 @@ SpringBoot、Mybatis-Plus、MySQL、Vue3、ElementPlus等
 
 ### 展示板页面
 
-![dashboard](images\dashboard.png)
+![dashboard](images/dashboard.png)
 
 ### 管理员界面
 
@@ -50,19 +50,19 @@ SpringBoot、Mybatis-Plus、MySQL、Vue3、ElementPlus等
 
 - 图书表格列表
 
-   ![book](images\book.png)
+   ![book](images/book.png)
 
 - 添加图书
 
-   ![add_book](images\add_book.png)
+   ![add_book](images/add_book.png)
 
 - 编辑图书
 
-   ![edit_book](images\edit_book.png)
+   ![edit_book](images/edit_book.png)
 
 - 删除图书
 
-   ![delete_book](images\delete_book.png)
+   ![delete_book](images/delete_book.png)
 
    
 
@@ -88,7 +88,7 @@ SpringBoot、Mybatis-Plus、MySQL、Vue3、ElementPlus等
 
   #### 借阅状态
   
-  ![lendstatus](images\lendstatus.png)
+  ![lendstatus](images/lendstatus.png)
 
 
 
@@ -128,7 +128,7 @@ SpringBoot、Mybatis-Plus、MySQL、Vue3、ElementPlus等
 
 #### 借阅状态
 
-![book_status2](images\book_status2.png)
+![book_status2](images/book_status2.png)
 
 
 
