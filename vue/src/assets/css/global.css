@@ -1,0 +1,6 @@
+/* 所有元素都生效*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
