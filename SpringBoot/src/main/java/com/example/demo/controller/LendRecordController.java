@@ -11,6 +11,7 @@ import com.example.demo.entity.LendRecord;
 import com.example.demo.entity.LendRecord;
 import com.example.demo.entity.LendRecord;
 import com.example.demo.mapper.LendRecordMapper;
+import com.example.demo.mapper.BookMapper;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,6 +25,8 @@ import java.util.Map;
 public class LendRecordController {
     @Resource
     LendRecordMapper LendRecordMapper;
+    @Resource
+    BookMapper bookMapper;
 
     @DeleteMapping("/{isbn}")
     public Result<?> delete(@PathVariable String isbn){
@@ -54,8 +57,22 @@ public class LendRecordController {
         return Result.success();
     }
     @PostMapping
-    public Result<?> save(@RequestBody LendRecord LendRecord){
-        LendRecordMapper.insert(LendRecord);
+    public Result<?> save(@RequestBody LendRecord lendRecord){
+        LambdaQueryWrapper<Book> bookQuery = Wrappers.<Book>lambdaQuery().eq(Book::getIsbn, lendRecord.getIsbn());
+        Book book = bookMapper.selectOne(bookQuery);
+        if (book == null) {
+            return Result.error("-1", "图书不存在");
+        }
+        if (book.getBorrownum() == null || book.getBorrownum() <= 0) {
+            return Result.error("-1", "图书库存不足");
+        }
+        int oldNum = book.getBorrownum();
+        book.setBorrownum(oldNum - 1);
+        boolean updateSuccess = bookMapper.updateById(book) > 0;
+        if (!updateSuccess) {
+            return Result.error("-1", "操作冲突，请重试");
+        }
+        LendRecordMapper.insert(lendRecord);
         return Result.success();
     }
     @GetMapping

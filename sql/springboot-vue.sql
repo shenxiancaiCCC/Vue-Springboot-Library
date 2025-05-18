@@ -31,6 +31,7 @@ CREATE TABLE `book`  (
   `create_time` date NULL DEFAULT NULL COMMENT '出版时间',
   `status` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '0：未归还 1：已归还',
   `borrownum` int(0) NOT NULL COMMENT '此书被借阅次数',
+  `version`     int default 0  null COMMENT '乐观锁版本号',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 

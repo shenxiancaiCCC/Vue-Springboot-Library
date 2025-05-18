@@ -4,6 +4,7 @@ package com.example.demo.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.Version;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -29,6 +30,8 @@ public class Book {
     @JsonFormat(locale="zh",timezone="GMT+8", pattern="yyyy-MM-dd")
     private Date createTime;
     private String status;
+    @Version
+    private Integer version;
 
 
 }
